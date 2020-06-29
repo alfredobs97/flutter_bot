@@ -1,9 +1,12 @@
 const functions = require('./functions');
 
-const searchAndRetweet = async () => {
-  const lastId = await functions.searchLastTweetIdWithHastag('#flutter');
-  console.log(await functions.retweetLatest(lastId));
+const searchAndRetweet = () => {
+  functions
+    .searchLastTweetIdWithHastag('#flutter')
+    .on('tweet', ({ id_str }) =>
+      functions.retweetLatest(id_str).catch((err) => console.log(err))
+    );
 };
 
-setInterval(searchAndRetweet, 1000 * 59);
+searchAndRetweet();
 console.log('App started');

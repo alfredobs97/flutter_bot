@@ -18,15 +18,7 @@ const retweetLatest = (retweetId) => {
 };
 
 const searchLastTweetIdWithHastag = (hastag) =>
-  new Promise((resolve, reject) => {
-    const query = { q: hastag, count: 1, result_type: 'recent' };
-
-    twit.get('search/tweets', query, (error, tweets) => {
-      if (error) return reject(error);
-
-      return resolve(tweets.statuses[0].id_str);
-    });
-  });
+  twit.stream('statuses/filter', { track: hastag });
 
 module.exports = {
   retweetLatest,
