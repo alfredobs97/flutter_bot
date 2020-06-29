@@ -6,3 +6,4 @@ const searchAndRetweet = async () => {
 };
 
 setInterval(searchAndRetweet, 1000 * 60 * 5);
+console.log('App started');
