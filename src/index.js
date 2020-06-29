@@ -5,5 +5,5 @@ const searchAndRetweet = async () => {
   console.log(await functions.retweetLatest(lastId));
 };
 
-setInterval(searchAndRetweet, 1000 * 60 * 5);
+setInterval(searchAndRetweet, 1000 * 59);
 console.log('App started');
