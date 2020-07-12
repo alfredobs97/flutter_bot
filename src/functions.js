@@ -8,15 +8,8 @@ const twit = new Twitter({
   access_token_secret: process.env.TOKEN_SECRET,
 });
 
-const retweetLatest = (retweetId) => {
-  return new Promise((resolve, reject) =>
-    twit.post('statuses/retweet/' + retweetId, {}, (error, response) => {
-      if (error) return reject(error);
-
-      return resolve(response);
-    })
-  );
-};
+const retweetLatest = (retweetId) =>
+  twit.post('statuses/retweet/' + retweetId, {});
 
 const searchLastTweetIdWithHastag = (hastag) =>
   twit.stream('statuses/filter', { track: hastag });

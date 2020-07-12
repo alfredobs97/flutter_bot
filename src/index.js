@@ -3,9 +3,8 @@ const functions = require('./functions');
 const searchAndRetweet = () => {
   functions
     .searchLastTweetIdWithHastag('#flutter')
-    .on('tweet', ({ id_str }) =>
-      functions.retweetLatest(id_str).catch((err) => console.log(err))
-    );
+    .on('start', (_) => console.log('Listening...'))
+    .on('data', ({ id_str }) => functions.retweetLatest(id_str));
 };
 
 searchAndRetweet();
