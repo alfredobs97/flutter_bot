@@ -1,5 +1,5 @@
 const functions = require('./functions');
-const hastags = ['#flutter,#Flutterista,#Flutteristas, #flutterdev','#fluttercommunity'];
+const hastags = '#flutter,#Flutterista,#Flutteristas,#flutterdev, #fluttercommunity';
 
 const searchAndRetweet = () => {
   functions
