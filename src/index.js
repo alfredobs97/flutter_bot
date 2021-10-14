@@ -5,7 +5,12 @@ const searchAndRetweet = () => {
   functions
     .searchLastTweetIdWithHastag(hastags)
     .on('start', (_) => console.log('Listening...'))
-    .on('data', ({ id_str }) => functions.retweetLatest(id_str));
+    .on('data', (tweet) => {
+      if (functions.isUserAllowed(tweet.user.screen_name)) {
+        functions.retweetLatest(tweet.id_str);
+      }
+
+    });
 };
 
 searchAndRetweet();

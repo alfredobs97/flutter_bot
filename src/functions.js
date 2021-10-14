@@ -8,13 +8,20 @@ const twit = new Twitter({
   access_token_secret: process.env.TOKEN_SECRET,
 });
 
+const usersBlocked = [
+  'raja00710', 'TeanPatriot007'
+]
+
 const retweetLatest = (retweetId) =>
   twit.post('statuses/retweet/' + retweetId, {});
 
 const searchLastTweetIdWithHastag = (hastag) =>
   twit.stream('statuses/filter', { track: hastag });
 
+const isUserAllowed = (username) => !usersBlocked.includes(username); 
+
 module.exports = {
   retweetLatest,
   searchLastTweetIdWithHastag,
+  isUserAllowed,
 };
