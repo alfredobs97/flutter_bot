@@ -9,7 +9,7 @@ const twit = new Twitter({
 });
 
 const usersBlocked = [
-  'raja00710', 'TeanPatriot007'
+  'raja00710', 'teanpatriot007'
 ]
 
 const retweetLatest = (retweetId) =>
@@ -18,7 +18,7 @@ const retweetLatest = (retweetId) =>
 const searchLastTweetIdWithHastag = (hastag) =>
   twit.stream('statuses/filter', { track: hastag });
 
-const isUserAllowed = (username) => !usersBlocked.includes(username); 
+const isUserAllowed = (username) => !usersBlocked.includes(username.toLowerCase()); 
 
 module.exports = {
   retweetLatest,
