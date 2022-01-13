@@ -9,7 +9,7 @@ const twit = new Twitter({
 });
 
 const usersBlocked = [
-  'raja00710', 'teanpatriot007'
+  'raja007','raja00710', 'teanpatriot007'
 ]
 
 const retweetLatest = (retweetId) =>
